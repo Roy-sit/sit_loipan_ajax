@@ -1,0 +1,31 @@
+[
+
+  {
+    "id": "hotspot-1",
+    "title": "Noise-cancelling microphones",
+    "text": "Noise-cancelling microphones and a rear copper shield are optimally placed to quickly detect outside noises, working together to counter noise before it disturbs your experience.",
+    "image": "images/noise_cl.png"
+  },
+
+  {
+    "id": "hotspot-2",
+    "title": "Comfortable fit",
+    "text": "Three pairs of ultra comfortable silicone tips are included. The tips create an acoustic seal that blocks outside audio and secures the earbuds in place.",
+    "image": "images/silicone.png"
+  },
+
+
+
+
+  {
+    "name": "Copper-Plated Aluminium",
+    "description": "A premium copper-plated aluminum for durability and elegance."
+  },
+
+  {
+    "name": "Nostalgia Design",
+    "description": "A design inspired by classic nostalgia, with a modern twist."
+  }
+  
+]
+
