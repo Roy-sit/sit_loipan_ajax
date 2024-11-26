@@ -13,6 +13,16 @@
   </head>
 
   <body>
+<!-- Background Video -->
+<div class="bg-video-container">
+  <video class="bg-video" autoplay loop muted playsinline>
+      <source src="video/bg_video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+  </video>
+</div>
+
+
+
     <div class="grid-con">
       <div class="col-span-full">
         <model-viewer id="model" src="model/earbuds.gltf" ar ar-modes="webxr scene-viewer quick-look" ios-src="model/earbuds.usdz" camera-controls poster="images/poster.webp" shadow-intensity="1" environment-image="images/aircraft_workshop_01_1k.hdr" exposure="1.7" camera-orbit="52.34deg 88.29deg 874.8m" field-of-view="30deg">
