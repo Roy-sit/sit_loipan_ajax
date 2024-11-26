@@ -6,10 +6,45 @@
     height: 700px;
     background-color: #efefef;
     margin: 0 auto;
+    scale: 80%;
   }
 
+  #hotspot-1 img, #hotspot-2 img {
+    transform: scale(0.8);
+    margin-left: 25px;
+  }
+
+
+  // Spinner
+  .spinner {
+    width: 40px;
+    height: 40px;
+  }
   
-  // Customize our own hotspot
+  .spinner-circle {
+    stroke: #ff6c00; 
+    stroke-width: 5;
+    fill: none;
+    animation: zoom 1.5s ease-in-out infinite;
+    transform-origin: center;
+  }
+  
+  @keyframes zoom {
+    0% {
+      transform: scale(0.1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(0.8); 
+      opacity: 0.5; 
+    }
+    100% {
+      transform: scale(0); 
+      opacity: 1;
+    }
+  }
+
+
   .Hotspot {
     background: url(../images/hotspot.svg) center no-repeat;
     border: 0px;
@@ -63,8 +98,7 @@
     background-color: #E89B36;
   }
 
-  /* AR Rules */
-
+  // AR Rules
   #ar-button {
     background-image: url(../images/ar_icon.png);
     background-repeat: no-repeat;
@@ -97,6 +131,7 @@
   #ar-button:focus-visible {
     outline: 1px solid #4285f4;
   }
+
 
   @keyframes circle {
     from {
@@ -133,3 +168,50 @@
   model-viewer>#ar-prompt>img {
     animation: circle 4s linear infinite;
   }
+
+
+  // Show hotspot info on click
+.Hotspot[data-visible] + .HotspotAnnotation {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+  transition: opacity 0.3s ease;
+}
+
+// Hide hotspot info when clicking outside the hotspot 
+model-viewer {
+  cursor: pointer;
+}
+
+model-viewer.clicked .HotspotAnnotation {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+// Material List Styling
+#materials {
+  margin: 20px;
+}
+
+#material-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.material-item {
+  margin: 10px 0;
+  padding: 15px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.material-heading {
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.material-description {
+  color: black;
+}
