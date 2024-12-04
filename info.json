@@ -1,18 +1,12 @@
 [
-
   {
-    "id": "hotspot-1",
-    "title": "Noise-cancelling microphones",
-    "text": "Noise-cancelling microphones and a rear copper shield are optimally placed to quickly detect outside noises, working together to counter noise before it disturbs your experience.",
-    "image": "images/noise_cl.png"
+    "heading": "Noise-cancelling microphones",
+    "description": "Noise-cancelling microphones and a rear copper shield are optimally placed to quickly detect outside noises, working together to counter noise before it disturbs your experience.",
+    "thumbnail": "images/earbud1.jpg"
   },
-
   {
-    "id": "hotspot-2",
-    "title": "Comfortable fit",
-    "text": "Three pairs of ultra comfortable silicone tips are included. The tips create an acoustic seal that blocks outside audio and secures the earbuds in place.",
-    "image": "images/silicone.png"
+    "heading": "Comfortable fit",
+    "description": "Three pairs of ultra comfortable silicone tips are included. The tips create an acoustic seal that blocks outside audio and secures the earbuds in place.",
+     "thumbnail": "images/earbud2.jpg"
   }
-  
 ]
-

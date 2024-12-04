@@ -7,7 +7,6 @@
 
 
 
-
   // Spinner
   spinnerContainer.innerHTML = `
     <svg class="spinner" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
@@ -60,6 +59,7 @@
 
 
 
+
   // Display error message
   function displayErrorMessage(message) {
     errorMessage.textContent = message;
@@ -73,29 +73,35 @@
 
 
 
-  // Load hotspot info from JSON
+  // Load hotspot info
   function loadInfoBoxes() {
     showSpinner(); // Show spinner at the beginning of the fetch
-    fetch("info.json")
+    
+    fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then((response) => {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.json();
       })
       .then((infoBoxes) => {
-        infoBoxes.forEach((infoBox) => {
-          const selected = document.querySelector(`#${infoBox.id}`);
+        console.log(infoBoxes); 
+        infoBoxes.forEach((infoBox, index) => {
+          const selected = document.querySelector(`#hotspot-${index + 1}`);
           if (selected) {
+            // Create and populate elements dynamically
             const titleElement = document.createElement("h2");
-            titleElement.textContent = infoBox.title;
-
+            titleElement.textContent = infoBox.heading;
+    
             const textElement = document.createElement("p");
-            textElement.textContent = infoBox.text;
-
+            textElement.textContent = infoBox.description;
+    
             const imageElement = document.createElement("img");
-            imageElement.src = infoBox.image;
-            imageElement.alt = infoBox.title; 
-            imageElement.style.width = "100%"; 
-
+            
+            const imagePath = infoBox.thumbnail.startsWith("images/") ? infoBox.thumbnail : `images/${infoBox.thumbnail}`;
+            imageElement.src = imagePath;
+            imageElement.alt = infoBox.heading;
+            imageElement.style.width = "100%";
+    
+            // Append elements to the selected hotspot div
             selected.appendChild(imageElement);
             selected.appendChild(titleElement);
             selected.appendChild(textElement);
@@ -103,16 +109,17 @@
         });
       })
       .catch((error) => {
-        console.error("Error fetching info.json:", error);
+        console.error("Error fetching infobox data:", error);
         displayErrorMessage("Failed to load hotspot information. Please try again later.");
       })
       .finally(() => {
-        hideSpinner(); 
+        hideSpinner();
       });
   }
+  
 
+  
   loadInfoBoxes();
-
   // Toggle hotspot info visibility
   function toggleHotspotInfo(event) {
     const selected = event.currentTarget;
@@ -152,7 +159,7 @@
 
 
   
-  // Load material list from JSON
+  // Load material 
   function loadMaterialList() {
     showSpinner(); 
     fetch("https://swiftpixel.com/earbud/api/materials") 
