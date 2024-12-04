@@ -150,11 +150,12 @@
   });
 
 
+
   
   // Load material list from JSON
   function loadMaterialList() {
     showSpinner(); 
-    fetch("info.json") 
+    fetch("https://swiftpixel.com/earbud/api/materials") 
       .then((response) => {
         if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
         return response.json();
